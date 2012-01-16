@@ -132,7 +132,7 @@
         endfunction
 
         function! CurDir()
-            let curdir = substitute(expand('%:p'), '/home/miripiruni', '~', 'g')
+            let curdir = substitute(expand('%:p'), '/home/nvoronin', '~', 'g')
             return curdir
         endfunction
 
@@ -258,6 +258,9 @@
 
         " Resize splits when the window is resized
             au VimResized * exe "normal! \<c-w>="
+
+        " Sync folders when project file is saved
+            au BufWritePost * silent! !~/.vim/sync.rb %:p
 
 " Плагины
 
